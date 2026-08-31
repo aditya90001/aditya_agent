@@ -1,0 +1,39 @@
+[
+  {
+    "scheme_id": "MSME_ZED_CERTIFICATION",
+    "scheme_name": "MSME Sustainable (ZED) Certification Scheme",
+    "nodal_ministry": "Ministry of Micro, Small and Medium Enterprises (MSME)",
+    "official_url": "https://zed.msme.gov.in",
+    "benefits": {
+      "micro_enterprise_subsidy": "80% Financial Assistance on Certification Cost",
+      "small_enterprise_subsidy": "60% Financial Assistance on Certification Cost",
+      "medium_enterprise_subsidy": "50% Financial Assistance on Certification Cost",
+      "women_owned_bonus": "Additional 10% subsidy for Women / SC / ST Entrepreneurs",
+      "handholding_support": "₹5 Lakhs financial support for technological consultancy and testing lab setup"
+    },
+    "applicability": "All manufacturing MSMEs with active Udyam Registration Number"
+  },
+  {
+    "scheme_id": "BIS_MSME_50_CONCESSION",
+    "scheme_name": "BIS 50% Concession on Annual Marking & Application Fees for Micro MSMEs",
+    "nodal_ministry": "Bureau of Indian Standards / Ministry of Consumer Affairs",
+    "official_url": "https://www.bis.gov.in/fee-structure-concessions",
+    "benefits": {
+      "marking_fee_reduction": "50% flat discount on minimum annual marking fees for Micro Scale Units",
+      "small_enterprise_discount": "20% discount on minimum annual marking fees for Small Scale Units",
+      "women_entrepreneur_waiver": "Special 50% concession for units owned 100% by women entrepreneurs"
+    },
+    "applicability": "Udyam Registered Micro & Small Enterprises applying under Scheme-I (ISI Mark)"
+  },
+  {
+    "scheme_id": "DGFT_EOU_EXEMPTION",
+    "scheme_name": "DGFT 100% Export-Oriented Unit (EOU) Quality Control Exemption",
+    "nodal_ministry": "Directorate General of Foreign Trade (DGFT) / Ministry of Commerce",
+    "official_url": "https://www.dgft.gov.in",
+    "benefits": {
+      "domestic_qco_waiver": "100% exemption from domestic Indian Standard (IS) mandatory marking for goods manufactured exclusively for export",
+      "customs_duty_drawback": "Duty-free import of raw materials and electronic components under Advance Authorisation Scheme"
+    },
+    "applicability": "100% EOUs, SEZ Units, and Export Manufacturing Facilities"
+  }
+]

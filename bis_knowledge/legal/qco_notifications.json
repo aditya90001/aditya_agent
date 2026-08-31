@@ -1,0 +1,410 @@
+[
+  {
+    "qco_id": "QCO_MEITY_2012_ELEC",
+    "order_title": "Electronics and Information Technology Goods (Requirement for Compulsory Registration) Order, 2012 & Subsequent Amendments",
+    "gazette_so_number": "S.O. 2357(E)",
+    "notification_date": "2012-10-03",
+    "enforcement_date": "2013-07-03",
+    "issuing_ministry": "Ministry of Electronics and Information Technology (MeitY)",
+    "enabling_act": "Bureau of Indian Standards Act, 2016 (Section 16 & Section 17)",
+    "statutory_scheme": "Scheme-II (Compulsory Registration Scheme - CRS)",
+    "key_statutory_clauses": [
+      {
+        "clause_number": "Clause 3(1)",
+        "clause_heading": "Prohibition regarding manufacture, storage, sale and distribution",
+        "clause_text": "No person shall manufacture or store for sale, import, sell or distribute goods specified in the Schedule which do not conform to the Indian Standard specified in column (3) of the said Schedule and do not bear the Standard Mark with the unique registration number allotted by the Bureau."
+      },
+      {
+        "clause_number": "Clause 3(2)",
+        "clause_heading": "Exemption for 100% Export and Prototype R&D",
+        "clause_text": "Nothing in this order shall apply to goods manufactured exclusively for export purpose or imported as prototypes for research and development up to 100 units per model with customs bonded undertaking."
+      },
+      {
+        "clause_number": "Clause 4",
+        "clause_heading": "Penalties for Contravention",
+        "clause_text": "Any person who contravenes the provisions of this Order shall be punishable under the provisions of Section 29 of the Bureau of Indian Standards Act, 2016 (Imprisonment up to 2 years or fine up to 5 Lakhs INR, or both)."
+      }
+    ],
+    "covered_standards": [
+      {
+        "is_number": "IS 13252 (Part 1):2010",
+        "product_description": "Power Adapters for IT Equipment, Laptops, Mobile Phone Fast Chargers (HSN 8504.40)"
+      },
+      {
+        "is_number": "IS 16046 (Part 2):2018",
+        "product_description": "Secondary Lithium-Ion Cells and Batteries for Portable Applications (HSN 8507.60)"
+      },
+      {
+        "is_number": "IS 616:2017",
+        "product_description": "Audio, Video and Similar Electronic Apparatus - Safety Requirements (Smart TVs, Set Top Boxes)"
+      },
+      {
+        "is_number": "IS 16333 (Part 3):2022",
+        "product_description": "Mobile Phone Handsets - Indian Language Support (HSN 8517.12)"
+      },
+      {
+        "is_number": "IS 16242 (Part 1):2014",
+        "product_description": "Uninterruptible Power Supply (UPS / Inverters up to 2kVA) (HSN 8504.40)"
+      }
+    ]
+  },
+  {
+    "qco_id": "QCO_STEEL_2020",
+    "order_title": "Steel and Steel Products (Quality Control) Order, 2020",
+    "gazette_so_number": "S.O. 1673(E)",
+    "notification_date": "2020-05-27",
+    "enforcement_date": "2020-11-27",
+    "issuing_ministry": "Ministry of Steel",
+    "enabling_act": "Bureau of Indian Standards Act, 2016 (Section 16)",
+    "statutory_scheme": "Scheme-I (ISI Mark Certification)",
+    "key_statutory_clauses": [
+      {
+        "clause_number": "Clause 2",
+        "clause_heading": "Compulsory Use of Standard Mark",
+        "clause_text": "Every steel product specified in column (2) of the Schedule shall conform to the corresponding Indian Standard specified in column (3) and shall bear the Standard Mark under a licence from the Bureau of Indian Standards as per Scheme-I of Schedule-II."
+      },
+      {
+        "clause_number": "Clause 3",
+        "clause_heading": "Seizure of Non-Compliant Steel",
+        "clause_text": "Any steel product manufactured or imported in violation of this Order shall be liable for immediate confiscation at port customs or manufacturing warehouses by designated BIS Enforcement Officers."
+      },
+      {
+        "clause_number": "Clause 4(a)",
+        "clause_heading": "Prohibition on Uncertified Rebars",
+        "clause_text": "No person shall manufacture, store for sale, sell or distribute Steel Bars and Wires unless they conform to IS 1786 and bear the Standard ISI Mark under a licence from the Bureau."
+      }
+    ],
+    "covered_standards": [
+      {
+        "is_number": "IS 1786:2008",
+        "product_description": "High Strength Deformed Steel Bars (TMT Rebars Fe 415, Fe 500, Fe 500D, Fe 550, Fe 600 - HSN 7214.20)"
+      },
+      {
+        "is_number": "IS 2062:2011",
+        "product_description": "Hot Rolled Medium and High Tensile Structural Steel Plates and Sections (HSN 7208.10)"
+      },
+      {
+        "is_number": "IS 2879:1998",
+        "product_description": "Mild Steel for Metal Arc Welding Electrodes (HSN 7229.20)"
+      },
+      {
+        "is_number": "IS 1239 (Part 1):2004",
+        "product_description": "Steel Tubes, Tubulars and Other Wrought Steel Fittings (HSN 7306.30)"
+      }
+    ]
+  },
+  {
+    "qco_id": "QCO_TOYS_2020",
+    "order_title": "Toys (Quality Control) Order, 2020",
+    "gazette_so_number": "S.O. 858(E)",
+    "notification_date": "2020-02-25",
+    "enforcement_date": "2021-01-01",
+    "issuing_ministry": "Department for Promotion of Industry and Internal Trade (DPIIT)",
+    "enabling_act": "Bureau of Indian Standards Act, 2016 (Section 16)",
+    "statutory_scheme": "Scheme-I (ISI Mark Certification)",
+    "key_statutory_clauses": [
+      {
+        "clause_number": "Clause 3",
+        "clause_heading": "Mandatory Conformity to Toy Safety Standards",
+        "clause_text": "Toys shall conform to the Primary Indian Standard IS 9873 (Part 1, 2, 3, 4, 7, 9) and IS 15644 (for Electric Toys) and shall bear the Standard Mark under Scheme-I licence."
+      },
+      {
+        "clause_number": "Clause 4",
+        "clause_heading": "Special Provisions for Artisans & Handcrafted Toys",
+        "clause_text": "Registered GI / Handloom artisans producing non-electric handcrafted wooden or clay toys may claim specific test exemptions under MSME Cluster initiatives."
+      }
+    ],
+    "covered_standards": [
+      {
+        "is_number": "IS 9873 (Part 1):2019",
+        "product_description": "Safety of Toys - Mechanical and Physical Properties (HSN 9503.00)"
+      },
+      {
+        "is_number": "IS 9873 (Part 2):2017",
+        "product_description": "Safety of Toys - Flammability Requirements"
+      },
+      {
+        "is_number": "IS 9873 (Part 3):2020",
+        "product_description": "Safety of Toys - Migration of Certain Toxic Chemical Elements (Heavy Metal Limits)"
+      },
+      {
+        "is_number": "IS 15644:2006",
+        "product_description": "Safety of Electric Toys (HSN 9503.00)"
+      }
+    ]
+  },
+  {
+    "qco_id": "QCO_FOOTWEAR_2023",
+    "order_title": "Footwear made from Leather and other Materials (Quality Control) Order, 2023",
+    "gazette_so_number": "S.O. 1243(E)",
+    "notification_date": "2023-03-15",
+    "enforcement_date": "2023-07-01",
+    "issuing_ministry": "Department for Promotion of Industry and Internal Trade (DPIIT)",
+    "enabling_act": "Bureau of Indian Standards Act, 2016 (Section 16)",
+    "statutory_scheme": "Scheme-I (ISI Mark Certification)",
+    "key_statutory_clauses": [
+      {
+        "clause_number": "Clause 2",
+        "clause_heading": "Mandatory ISI Certification on Footwear",
+        "clause_text": "No footwear specified in the Table shall be manufactured, imported, distributed or sold without ISI Mark certification."
+      },
+      {
+        "clause_number": "Clause 3",
+        "clause_heading": "MSME Staggered Implementation Timelines",
+        "clause_text": "Micro and Small enterprises are given extended transitional compliance window up to 1st January 2024 with 80% testing fee subsidy."
+      }
+    ],
+    "covered_standards": [
+      {
+        "is_number": "IS 15298 (Part 2):2016",
+        "product_description": "Personal Protective Equipment - Safety Footwear with Steel Toe Cap (HSN 6403.40)"
+      },
+      {
+        "is_number": "IS 15298 (Part 3):2019",
+        "product_description": "Protective Footwear for Industrial Workers (HSN 6403.91)"
+      },
+      {
+        "is_number": "IS 15298 (Part 4):2017",
+        "product_description": "Occupational Footwear (Slip Resistant) (HSN 6404.11)"
+      }
+    ]
+  },
+  {
+    "qco_id": "QCO_SOLAR_PV_2017",
+    "order_title": "Solar Photovoltaics, Systems, Devices and Components Goods (Requirements for Compulsory Registration) Order, 2017",
+    "gazette_so_number": "S.O. 2920(E)",
+    "notification_date": "2017-09-05",
+    "enforcement_date": "2018-04-16",
+    "issuing_ministry": "Ministry of New and Renewable Energy (MNRE)",
+    "enabling_act": "Bureau of Indian Standards Act, 2016 (Section 16)",
+    "statutory_scheme": "Scheme-II (CRS Scheme)",
+    "key_statutory_clauses": [
+      {
+        "clause_number": "Clause 3",
+        "clause_heading": "Mandatory Registration for Solar Modules & Inverters",
+        "clause_text": "All solar photovoltaic modules (Crystalline and Thin-Film) and grid-tied solar inverters deployed in government tenders or private rooftop installations must be registered under Scheme-II (CRS) with BIS."
+      },
+      {
+        "clause_number": "Clause 4",
+        "clause_heading": "Approved List of Models and Manufacturers (ALMM)",
+        "clause_text": "Conformity to IS 14286 / IS 61730 is mandatory prerequisite for enlistment in MNRE ALMM List for government subsidized solar projects."
+      }
+    ],
+    "covered_standards": [
+      {
+        "is_number": "IS 14286:2010",
+        "product_description": "Crystalline Silicon Terrestrial Photovoltaic (PV) Modules (HSN 8541.40.11)"
+      },
+      {
+        "is_number": "IS/IEC 61730 (Part 1):2004",
+        "product_description": "Photovoltaic (PV) Module Safety Qualification - Construction"
+      },
+      {
+        "is_number": "IS/IEC 61730 (Part 2):2004",
+        "product_description": "Photovoltaic (PV) Module Safety Qualification - Testing"
+      },
+      {
+        "is_number": "IS 16221 (Part 2):2015",
+        "product_description": "Safety of Power Converters for use in Photovoltaic Power Systems (Solar Inverters) (HSN 8504.40)"
+      }
+    ]
+  },
+  {
+    "qco_id": "QCO_GOLD_HALLMARK_2020",
+    "order_title": "Hallmarking of Gold Jewellery and Gold Artefacts Order, 2020",
+    "gazette_so_number": "S.O. 205(E)",
+    "notification_date": "2020-01-15",
+    "enforcement_date": "2021-06-16",
+    "issuing_ministry": "Ministry of Consumer Affairs, Food and Public Distribution",
+    "enabling_act": "Bureau of Indian Standards Act, 2016 (Section 14 & Section 16)",
+    "statutory_scheme": "Scheme-IV (Hallmarking with 6-Digit HUID)",
+    "key_statutory_clauses": [
+      {
+        "clause_number": "Clause 3",
+        "clause_heading": "Mandatory 6-Digit HUID Hallmarking",
+        "clause_text": "No jeweller shall sell gold jewellery or artefacts of 14k, 18k, 20k, 22k, 23k, or 24k purity unless laser-marked with BIS Logo, Purity Fineness mark, and unique 6-digit alphanumeric Hallmarking Unique ID (HUID) from an accredited AHC."
+      },
+      {
+        "clause_number": "Clause 4",
+        "clause_heading": "Exemptions for Artisans and Small Turnover",
+        "clause_text": "Jewellers with annual turnover below 40 Lakhs INR and gold items under 2 grams are exempt from mandatory HUID registration."
+      }
+    ],
+    "covered_standards": [
+      {
+        "is_number": "IS 1417:2016",
+        "product_description": "Gold and Gold Alloys, Jewellery/Artefacts - Fineness and Marking (HSN 7113.19)"
+      },
+      {
+        "is_number": "IS 2112:2014",
+        "product_description": "Silver and Silver Alloys, Jewellery/Artefacts - Fineness and Marking (HSN 7113.11)"
+      }
+    ]
+  },
+  {
+    "qco_id": "QCO_WATER_FSSAI_BIS",
+    "order_title": "Food Safety and Standards (Prohibition and Restrictions on Sales) Mandatory Licensure for Water",
+    "gazette_so_number": "F.No. 1-83/FSSAI/Imports/2019",
+    "notification_date": "2021-01-01",
+    "enforcement_date": "2021-04-01",
+    "issuing_ministry": "FSSAI & Ministry of Consumer Affairs",
+    "enabling_act": "Food Safety and Standards Act, 2006 & BIS Act, 2016",
+    "statutory_scheme": "Scheme-I (ISI Mark Mandatory for FSSAI License)",
+    "key_statutory_clauses": [
+      {
+        "clause_number": "Regulation 2.3.14",
+        "clause_heading": "Mandatory BIS Certification for Packaged Water",
+        "clause_text": "No person shall manufacture, sell or exhibit for sale packaged drinking water or mineral water except under the Bureau of Indian Standards Certification Mark (ISI Mark) and valid FSSAI central license."
+      }
+    ],
+    "covered_standards": [
+      {
+        "is_number": "IS 14543:2016",
+        "product_description": "Packaged Drinking Water (Other than Natural Mineral Water) - Specification (HSN 2201.10)"
+      },
+      {
+        "is_number": "IS 13428:2005",
+        "product_description": "Packaged Natural Mineral Water - Specification (HSN 2201.90)"
+      },
+      {
+        "is_number": "IS 10500:2012",
+        "product_description": "Drinking Water Specification (Potable Tap Water) (HSN 2201.90)"
+      }
+    ]
+  },
+  {
+    "qco_id": "QCO_HELMETS_2020",
+    "order_title": "Helmet for Riders of Two Wheeler Motor Vehicles (Quality Control) Order, 2020",
+    "gazette_so_number": "S.O. 4252(E)",
+    "notification_date": "2020-11-26",
+    "enforcement_date": "2021-06-01",
+    "issuing_ministry": "Ministry of Road Transport and Highways (MoRTH)",
+    "enabling_act": "Bureau of Indian Standards Act, 2016 (Section 16)",
+    "statutory_scheme": "Scheme-I (ISI Mark Certification)",
+    "key_statutory_clauses": [
+      {
+        "clause_number": "Clause 2",
+        "clause_heading": "Prohibition of Non-ISI Helmets",
+        "clause_text": "All protective helmets for two-wheeler riders must bear the Standard ISI Mark conforming to IS 4151. Sale of imported non-ISI helmets (including DOT/ECE non-BIS certified) is strictly prohibited on domestic roads."
+      }
+    ],
+    "covered_standards": [
+      {
+        "is_number": "IS 4151:2015",
+        "product_description": "Protective Helmets for Two Wheeler Riders (HSN 6506.10)"
+      }
+    ]
+  },
+  {
+    "qco_id": "QCO_CEILING_FANS_2023",
+    "order_title": "Electrical Appliances for Domestic and Similar Purposes (Quality Control) Order, 2023",
+    "gazette_so_number": "S.O. 3472(E)",
+    "notification_date": "2023-08-09",
+    "enforcement_date": "2024-01-01",
+    "issuing_ministry": "Department for Promotion of Industry and Internal Trade (DPIIT)",
+    "enabling_act": "Bureau of Indian Standards Act, 2016 (Section 16)",
+    "statutory_scheme": "Scheme-I (ISI Mark + BEE Star Rating)",
+    "key_statutory_clauses": [
+      {
+        "clause_number": "Clause 3",
+        "clause_heading": "Mandatory Energy and Safety Standards",
+        "clause_text": "Electric ceiling fans and regulators must conform to IS 374:2019 for electrical safety and service value under Scheme-I."
+      }
+    ],
+    "covered_standards": [
+      {
+        "is_number": "IS 374:2019",
+        "product_description": "Electric Ceiling Type Fans and Regulators (HSN 8414.51.10)"
+      },
+      {
+        "is_number": "IS 302 (Part 2/Sec 3):2007",
+        "product_description": "Safety of Household and Similar Electrical Appliances - Electric Irons (HSN 8516.40)"
+      }
+    ]
+  },
+  {
+    "qco_id": "QCO_FASTENERS_2023",
+    "order_title": "Bolts, Nuts and Fasteners (Quality Control) Order, 2023",
+    "gazette_so_number": "S.O. 4124(E)",
+    "notification_date": "2023-09-21",
+    "enforcement_date": "2024-03-21",
+    "issuing_ministry": "Department for Promotion of Industry and Internal Trade (DPIIT)",
+    "enabling_act": "Bureau of Indian Standards Act, 2016 (Section 16)",
+    "statutory_scheme": "Scheme-I (ISI Mark Certification)",
+    "key_statutory_clauses": [
+      {
+        "clause_number": "Clause 2",
+        "clause_heading": "High Tensile Fastener Mandatory Certification",
+        "clause_text": "All industrial threaded fasteners, hex head bolts, and high tensile steel nuts must conform to IS 1367 series."
+      }
+    ],
+    "covered_standards": [
+      {
+        "is_number": "IS 1367 (Part 3):2017",
+        "product_description": "Technical Supply Conditions for Threaded Fasteners - Mechanical Properties of Carbon and Alloy Steel Bolts (HSN 7318.15)"
+      },
+      {
+        "is_number": "IS 1367 (Part 6):2018",
+        "product_description": "Technical Supply Conditions for Threaded Fasteners - Nuts with Specified Proof Load (HSN 7318.16)"
+      }
+    ]
+  },
+  {
+    "qco_id": "QCO_TYRES_2020",
+    "order_title": "Pneumatic Tyres and Tubes for Automotive Vehicles (Quality Control) Order, 2020",
+    "gazette_so_number": "S.O. 2953(E)",
+    "notification_date": "2020-08-28",
+    "enforcement_date": "2021-03-01",
+    "issuing_ministry": "Department for Promotion of Industry and Internal Trade (DPIIT)",
+    "enabling_act": "Bureau of Indian Standards Act, 2016 (Section 16)",
+    "statutory_scheme": "Scheme-I (ISI Mark Certification)",
+    "key_statutory_clauses": [
+      {
+        "clause_number": "Clause 2",
+        "clause_heading": "Automotive Tyre Mandatory Certification",
+        "clause_text": "No pneumatic tyre for passenger cars, commercial trucks, buses, or two-wheelers shall be sold or imported without standard ISI mark."
+      }
+    ],
+    "covered_standards": [
+      {
+        "is_number": "IS 15633:2005",
+        "product_description": "Automotive Vehicles - Pneumatic Tyres for Passenger Car Vehicles - Diagonal and Radial Ply (HSN 4011.10)"
+      },
+      {
+        "is_number": "IS 15636:2012",
+        "product_description": "Automotive Vehicles - Pneumatic Tyres for Commercial Vehicles - Diagonal and Radial Ply (HSN 4011.20)"
+      }
+    ]
+  },
+  {
+    "qco_id": "QCO_MEDICAL_DEVICES_CDSCO",
+    "order_title": "Medical Devices Rules, 2017 & BIS Mandatory Standards Enforcement",
+    "gazette_so_number": "G.S.R. 1337(E)",
+    "notification_date": "2017-10-27",
+    "enforcement_date": "2018-01-01",
+    "issuing_ministry": "Central Drugs Standard Control Organization (CDSCO) & MoHFW",
+    "enabling_act": "Drugs and Cosmetics Act, 1940 & BIS Act, 2016",
+    "statutory_scheme": "Scheme-I / CDSCO Dual Licensure",
+    "key_statutory_clauses": [
+      {
+        "clause_number": "Rule 7",
+        "clause_heading": "Mandatory Standard Compliance for Medical Consumables",
+        "clause_text": "All sterile hypodermic single use syringes, IV cannulas, blood transfusion sets, and latex gloves must conform to Bureau of Indian Standards specifications."
+      }
+    ],
+    "covered_standards": [
+      {
+        "is_number": "IS 10258:2010",
+        "product_description": "Sterile Hypodermic Syringes for Single Use (HSN 9018.31)"
+      },
+      {
+        "is_number": "IS 13422:2010",
+        "product_description": "Sterile Hypodermic Needles for Single Use (HSN 9018.32)"
+      },
+      {
+        "is_number": "IS 4148:1989",
+        "product_description": "Surgical Rubber Gloves (HSN 4015.11)"
+      }
+    ]
+  }
+]
