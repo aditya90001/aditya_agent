@@ -1,169 +1,168 @@
-import math
+from typing import Any
 
-from dotenv import load_dotenv
-
+from langchain_core.runnables import RunnableConfig
 from langchain_core.tools import tool
-from langchain_tavily import TavilySearch
 
-from database import save_memory, search_memory
-
-from rag import (
-    retrieve_from_rag,
-    retrieve_bis_knowledge
-)
-
-load_dotenv()
-
-
-# --------------------------------------------------
-# CURRENT THREAD
-# --------------------------------------------------
-
-CURRENT_THREAD_ID = "default"
-
-
-def set_current_thread_id(thread_id: str):
-
-    global CURRENT_THREAD_ID
-
-    CURRENT_THREAD_ID = thread_id
-
-
-# --------------------------------------------------
-# WEB SEARCH
-# --------------------------------------------------
-
-web_search = TavilySearch(
-    max_results=5,
-    topic="general",
-    search_depth="advanced"
+from rag.pipeline import (
+    query_college_knowledge,
+    query_uploaded_documents,
 )
 
 
-# ==================================================
-# CALCULATOR
-# ==================================================
+# ============================================================
+# COLLEGE KNOWLEDGE RAG
+# ============================================================
 
 @tool
-def calculator(expression: str) -> str:
+def search_college_knowledge(
+    question: str,
+) -> dict[str, Any]:
     """
-    Useful for simple math calculations.
-    Input should be a valid math expression.
-    Example: 2 + 2, math.sqrt(16), 10 * 5
+    Search the college knowledge base.
+
+    Use this tool for questions about:
+    - college subjects
+    - syllabus
+    - notes
+    - PYQs
+    - academic material
+    - college-specific information
+
+    The tool returns an answer, sources and retrieved results.
     """
 
-    try:
+    result = query_college_knowledge(
+        question=question
+    )
 
-        allowed = {
-            "math": math,
-            "abs": abs,
-            "round": round,
-            "min": min,
-            "max": max,
-            "sum": sum
+    return result
+
+
+# ============================================================
+# UPLOADED DOCUMENT RAG
+# ============================================================
+
+@tool
+def search_uploaded_documents(
+    question: str,
+    config: RunnableConfig,
+) -> dict[str, Any]:
+    """
+    Search documents uploaded by the user in the current
+    conversation.
+
+    The current LangGraph thread_id is automatically obtained
+    from the RunnableConfig.
+
+    Do NOT ask the user for a thread_id.
+    """
+
+    configurable = config.get(
+        "configurable",
+        {}
+    )
+
+    thread_id = configurable.get(
+        "thread_id"
+    )
+
+    if not thread_id:
+        return {
+            "answer": (
+                "I cannot search the uploaded documents because "
+                "the current conversation thread could not be identified."
+            ),
+            "sources": [],
+            "results": [],
         }
 
-        result = eval(
-            expression,
-            {"__builtins__": {}},
-            allowed
-        )
-
-        return str(result)
-
-    except Exception as e:
-
-        return f"Calculation error: {str(e)}"
-
-
-# ==================================================
-# USER UPLOADED DOCUMENT SEARCH
-# ==================================================
-
-@tool
-def search_uploaded_documents(query: str) -> str:
-    """
-    Search uploaded user documents.
-
-    Use this when the user asks about their uploaded
-    PDFs, DOCX, TXT, notes, files, or documents.
-    """
-
-    return retrieve_from_rag(
-        query=query,
-        thread_id=CURRENT_THREAD_ID
+    result = query_uploaded_documents(
+        question=question,
+        thread_id=thread_id,
     )
 
+    return result
 
-# ==================================================
-# GDG INTERNAL KNOWLEDGE SEARCH
-# ==================================================
 
-@tool
-def search_bis_knowledge(query: str) -> str:
-    """
-    Search the authorized BIS knowledge base.
-
-    Use this for:
-    - Indian Standards
-    - Product standards
-    - BIS certification
-    - BIS licensing
-    - Testing requirements
-    - BIS schemes
-    - Hallmarking
-    - Laboratories
-    - Consumer information
-    """
-
-    return retrieve_bis_knowledge(query=query)
-
-# ==================================================
-# LONG TERM MEMORY
-# ==================================================
+# ============================================================
+# MEMORY
+# ============================================================
 
 @tool
-def remember_this(memory: str) -> str:
+def remember_this(
+    information: str,
+) -> str:
     """
-    Save an important user preference or fact
-    into long-term memory.
+    Remember important information provided by the user.
+
+    Use this when the user explicitly asks the assistant
+    to remember something.
+
+    Memory persistence will be connected to the application's
+    SQLite memory system separately.
     """
 
-    return save_memory(
-        thread_id=CURRENT_THREAD_ID,
-        memory=memory
+    return (
+        "The information has been identified for memory storage: "
+        f"{information}"
     )
 
 
 @tool
-def recall_memory(query: str) -> str:
+def recall_memory(
+    query: str,
+) -> str:
     """
-    Recall saved long-term memories about
-    the user or this conversation.
+    Recall previously remembered information.
+
+    Use this when the user asks about something that should
+    have been remembered from an earlier conversation.
+
+    Persistent memory lookup will be connected to the
+    SQLite memory system separately.
     """
 
-    return search_memory(
-        thread_id=CURRENT_THREAD_ID,
-        query=query
+    return (
+        "Memory lookup requested for: "
+        f"{query}"
     )
 
 
-# ==================================================
+# ============================================================
+# WEB SEARCH
+# ============================================================
+
+@tool
+def web_search(
+    query: str,
+) -> str:
+    """
+    Search the web for current or external information.
+
+    Use this when the required information is not available
+    in the college knowledge base or uploaded documents.
+
+    Actual web-search integration will be connected separately.
+    """
+
+    return (
+        "Web search requested for: "
+        f"{query}"
+    )
+
+
+# ============================================================
 # ALL TOOLS
-# ==================================================
+# ============================================================
 
 tools = [
-
-    calculator,
-
+    search_college_knowledge,
     search_uploaded_documents,
-
-    search_bis_knowledge,       # NEW
-
     remember_this,
-
     recall_memory,
-
-    web_search
-
+    web_search,
 ]
+
+
+# Backward compatibility
+TOOLS = tools

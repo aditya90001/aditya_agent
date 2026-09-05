@@ -4,22 +4,23 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 import certifi
-from langchain_groq import ChatGroq
+
+# ============================================================
+# ENVIRONMENT
+# ============================================================
 
 load_dotenv()
 
-# ==================================================
-# SSL CONFIGURATION
-# ==================================================
-
+# SSL configuration
 os.environ["SSL_CERT_FILE"] = certifi.where()
 os.environ["REQUESTS_CA_BUNDLE"] = certifi.where()
 
 
-# ==================================================
-# LANGGRAPH IMPORTS
-# ==================================================
+# ============================================================
+# LANGCHAIN / LANGGRAPH
+# ============================================================
 
+from langchain_groq import ChatGroq
 from langchain_core.messages import SystemMessage
 from langgraph.graph import StateGraph, START, MessagesState
 from langgraph.prebuilt import ToolNode, tools_condition
@@ -28,276 +29,96 @@ from langgraph.checkpoint.sqlite import SqliteSaver
 from tools import tools
 
 
-# ==================================================
-# DIRECTORIES
-# ==================================================
+# ============================================================
+# DATA DIRECTORY
+# ============================================================
 
 Path("data").mkdir(exist_ok=True)
 
 
-# ==================================================
+# ============================================================
 # MODEL CONFIGURATION
-# ==================================================
+# ============================================================
 
 DEFAULT_MODEL = os.getenv(
     "GROQ_MODEL",
-    "openai/gpt-oss-20b"
+    "llama-3.3-70b-versatile"
 )
 
 ALLOWED_MODELS = {
-    "openai/gpt-oss-20b"
+    "openai/gpt-oss-20b",
+    "llama-3.3-70b-versatile",
+    "llama-3.1-8b-instant",
+    "qwen/qwen3-32b",
 }
 
 
-# ==================================================
+# ============================================================
 # SYSTEM PROMPT
-# ==================================================
+# ============================================================
 
 SYSTEM_PROMPT = """
-You are an AI-powered conversational assistant specialized in
-Indian Standards and Bureau of Indian Standards (BIS) services.
+You are a helpful Agentic AI assistant for college students.
 
-Your purpose is to help users understand and navigate:
+Your job is to answer questions accurately and use the
+available tools whenever they are required.
 
-- Indian Standards (IS)
-- Applicable standards for products
-- BIS certification
-- BIS licensing procedures
-- BIS certification schemes
-- Product conformity assessment
-- Testing requirements
-- BIS-recognized laboratories
-- Hallmarking
-- Consumer-related BIS information
-- Standards-related technical questions
+AVAILABLE TOOLS:
 
-You provide source-grounded informational assistance.
-You are NOT a legal or regulatory advisor.
+1. search_college_knowledge
+   Use this for:
+   - college notes
+   - subjects
+   - syllabus
+   - previous year questions
+   - academic material
+   - college-related knowledge
+   - information stored in the college knowledge base
 
-==================================================
-SOURCE AND RETRIEVAL RULES
-==================================================
+2. search_uploaded_documents
+   Use this when the user asks a question about a document
+   uploaded in the current conversation.
 
-1. BIS QUESTIONS
+3. remember_this
+   Use this when the user explicitly asks you to remember
+   something for future conversations.
 
-For questions primarily related to Indian Standards or BIS services,
-you MUST use:
+4. recall_memory
+   Use this when the user asks about something that was
+   previously remembered.
 
-search_bis_knowledge
+5. web_search
+   Use this when current or external information is required.
 
-before answering.
+GENERAL RULES:
 
-Do not rely only on your internal model knowledge for BIS-specific
-factual information.
-
---------------------------------------------------
-
-2. USER UPLOADED DOCUMENTS
-
-If the user asks about an uploaded:
-
-- PDF
-- DOCX
-- TXT
-- Markdown file
-- CSV
-- note
-- document
-
-use:
-
-search_uploaded_documents
-
-Do not substitute the BIS knowledge base when the user is explicitly
-asking about their uploaded document.
-
---------------------------------------------------
-
-3. CURRENT / LATEST INFORMATION
-
-If the user asks about:
-
-- latest
-- current
-- recent
-- newly introduced
-- amended
-- updated
-- current certification requirement
-- current licensing procedure
-- recent notification
-- current BIS scheme
-- current laboratory information
-
-then:
-
-1. Search the BIS knowledge base first.
-2. Use web_search when current verification is required.
-3. Prefer official BIS sources over third-party websites.
-4. Clearly state when current information could not be verified.
-
---------------------------------------------------
-
-4. OFFICIAL SOURCES
-
-For BIS regulatory or standards information, prioritize authoritative
-sources.
-
-Do not treat random blogs, forums, social media posts, or unofficial
-websites as authoritative.
-
---------------------------------------------------
-
-5. SOURCE CITATIONS
-
-Whenever retrieved information contains:
-
-- source document
-- IS number
-- page number
-- clause
-- title
-- scheme information
-
-include the relevant source information in the answer.
-
-Never invent a citation.
-
-If a page or clause is not available in retrieved information,
-do not fabricate one.
-
---------------------------------------------------
-
-6. NEVER INVENT INFORMATION
-
-Never invent:
-
-- Indian Standard numbers
-- standard titles
-- clauses
-- sub-clauses
-- certification requirements
-- testing requirements
-- licensing requirements
-- scheme numbers
-- laboratory names
-- validity periods
-- fees
-- notifications
-- regulatory provisions
-
-If the information cannot be verified, clearly say so.
-
-==================================================
-PRODUCT → STANDARD RECOMMENDATION
-==================================================
-
-When a user describes a product and asks which Indian Standard
-may apply:
-
-1. Identify the product.
-2. Extract important product characteristics from the query.
-3. Search the BIS knowledge base.
-4. Retrieve potentially relevant standards.
-5. Compare the product characteristics with the retrieved information.
-6. Explain why a standard may be applicable.
-7. Mention important conditions, exclusions, or specifications.
-8. If exact applicability cannot be determined, clearly state the
-   uncertainty.
-9. Never claim that a standard is mandatory unless the retrieved
-   authoritative information supports that conclusion.
-
-==================================================
-BIS CERTIFICATION
-==================================================
-
-For certification-related questions, distinguish clearly between:
-
-- Indian Standard
-- BIS certification
-- Certification scheme
-- Licensing requirement
-- Testing requirement
-- Conformity assessment
-- Product-specific requirements
-
-Do not assume that every Indian Standard automatically means
-mandatory BIS certification.
-
-==================================================
-HALLMARKING
-==================================================
-
-For hallmarking questions:
-
-1. Search the BIS knowledge base.
-2. Identify the relevant material/product context.
-3. Explain requirements only from retrieved authoritative information.
-4. Do not invent hallmarking rules, purity requirements, charges,
-   or procedures.
-
-==================================================
-LABORATORY QUESTIONS
-==================================================
-
-For laboratory-related questions:
-
-1. Search the BIS knowledge base.
-2. Provide laboratory information only when retrieved and verified.
-3. For current laboratory status, prefer current official BIS
-   information.
-
-==================================================
-MULTILINGUAL INTERACTION
-==================================================
-
-Respond in the language used by the user whenever practical.
-
-The user may communicate in:
-
-- English
-- Hindi
-- Hinglish
-- other supported languages
-
-Preserve technical terms such as IS numbers, clauses, schemes,
-standard titles, and laboratory names accurately.
-
-==================================================
-ANSWERING STYLE
-==================================================
-
-Prefer:
-
-- clear explanations
-- structured answers
-- bullet points
-- tables when useful
-- source information
-- page/clause references when available
-
-Do not expose internal tool calls or chain-of-thought.
-
-If the retrieved information is insufficient, say:
-
-"I could not verify this information from the available BIS
-knowledge sources."
-
-For high-risk legal or regulatory matters, recommend consulting
-the relevant BIS authority or qualified professional.
+- Do not hallucinate information.
+- Do not invent sources or citations.
+- For college-related questions, prefer the college knowledge
+  base.
+- For questions about uploaded files, use the uploaded-document
+  search tool.
+- If the required information is unavailable, clearly say so.
+- If a tool provides sources, use those sources when answering.
+- Keep answers clear and useful.
+- Do not use web search when the required information is already
+  available in the college knowledge base or uploaded documents.
+- Use tools when the question requires information from external
+  knowledge.
 """
 
 
-# ==================================================
-# MODEL VALIDATION
-# ==================================================
+# ============================================================
+# MODEL NORMALIZATION
+# ============================================================
 
-def normalize_model_name(model_name: str | None) -> str:
+def normalize_model_name(
+    model_name: str | None
+) -> str:
     """
-    Validate selected model from frontend.
+    Validate the model selected by the frontend.
 
-    If model is missing or not allowed,
-    fallback to DEFAULT_MODEL.
+    If the model is missing or invalid, use DEFAULT_MODEL.
     """
 
     if not model_name:
@@ -311,39 +132,110 @@ def normalize_model_name(model_name: str | None) -> str:
     return model_name
 
 
-# ==================================================
-# BUILD AGENT
-# ==================================================
+# ============================================================
+# CREATE LLM
+# ============================================================
 
-def build_agent(model_name: str):
+def create_llm(
+    model_name: str | None = None
+):
+    """
+    Create the Groq LLM.
+    """
 
-    selected_model = normalize_model_name(model_name)
-
-    # --------------------------------------------------
-    # GROQ LLM
-    # --------------------------------------------------
+    selected_model = normalize_model_name(
+        model_name
+    )
 
     llm = ChatGroq(
         model=selected_model,
         temperature=0.3,
-        streaming=True
+        streaming=True,
     )
 
-    # --------------------------------------------------
-    # BIND TOOLS
-    # --------------------------------------------------
+    return llm
 
-    llm_with_tools = llm.bind_tools(tools)
 
-    # --------------------------------------------------
-    # CHATBOT NODE
-    # --------------------------------------------------
+# ============================================================
+# SQLITE CHECKPOINTER
+# ============================================================
 
-    def chatbot_node(state: MessagesState):
+def create_checkpointer():
+    """
+    Create the SQLite checkpointer used by LangGraph.
+
+    This stores conversation state based on thread_id.
+    """
+
+    db_path = Path(
+        "data/langgraph_checkpoints.sqlite"
+    )
+
+    conn = sqlite3.connect(
+        str(db_path),
+        check_same_thread=False,
+    )
+
+    checkpointer = SqliteSaver(conn)
+
+    return checkpointer
+
+
+# ============================================================
+# BUILD AGENT
+# ============================================================
+
+def build_agent(
+    model_name: str | None = None
+):
+    """
+    Build and compile a LangGraph agent.
+    """
+
+    selected_model = normalize_model_name(
+        model_name
+    )
+
+    # --------------------------------------------------------
+    # LLM
+    # --------------------------------------------------------
+
+    llm = create_llm(
+        selected_model
+    )
+
+    # --------------------------------------------------------
+    # Bind tools
+    # --------------------------------------------------------
+
+    llm_with_tools = llm.bind_tools(
+        tools
+    )
+
+    # --------------------------------------------------------
+    # Chatbot node
+    # --------------------------------------------------------
+
+    def chatbot_node(
+        state: MessagesState
+    ):
+        """
+        Main LLM node.
+
+        Only the latest 10 messages are sent to the LLM
+        to prevent the request payload from becoming too large.
+
+        LangGraph/SQLite still keeps the complete conversation
+        history in the checkpoint.
+        """
+
+        recent_messages = state["messages"][-10:]
 
         messages = [
-            SystemMessage(content=SYSTEM_PROMPT)
-        ] + state["messages"]
+            SystemMessage(
+                content=SYSTEM_PROMPT
+            )
+        ] + recent_messages
 
         response = llm_with_tools.invoke(
             messages
@@ -353,15 +245,17 @@ def build_agent(model_name: str):
             "messages": [response]
         }
 
-    # --------------------------------------------------
-    # TOOL NODE
-    # --------------------------------------------------
+    # --------------------------------------------------------
+    # Tool node
+    # --------------------------------------------------------
 
-    tool_node = ToolNode(tools)
+    tool_node = ToolNode(
+        tools
+    )
 
-    # --------------------------------------------------
-    # WORKFLOW
-    # --------------------------------------------------
+    # --------------------------------------------------------
+    # Graph
+    # --------------------------------------------------------
 
     workflow = StateGraph(
         MessagesState
@@ -376,6 +270,10 @@ def build_agent(model_name: str):
         "tools",
         tool_node
     )
+
+    # --------------------------------------------------------
+    # Edges
+    # --------------------------------------------------------
 
     workflow.add_edge(
         START,
@@ -392,32 +290,38 @@ def build_agent(model_name: str):
         "chatbot"
     )
 
-    # --------------------------------------------------
-    # SQLITE CHECKPOINT
-    # --------------------------------------------------
+    # --------------------------------------------------------
+    # SQLite checkpoint
+    # --------------------------------------------------------
 
-    conn = sqlite3.connect(
-        "data/langgraph_checkpoints.sqlite",
-        check_same_thread=False
-    )
+    checkpointer = create_checkpointer()
 
-    checkpointer = SqliteSaver(
-        conn
-    )
+    # --------------------------------------------------------
+    # Compile
+    # --------------------------------------------------------
 
-    return workflow.compile(
+    agent = workflow.compile(
         checkpointer=checkpointer
     )
 
+    return agent
 
-# ==================================================
+
+# ============================================================
 # AGENT CACHE
-# ==================================================
+# ============================================================
 
 _AGENT_CACHE = {}
 
 
-def get_agent(model_name: str | None = None):
+def get_agent(
+    model_name: str | None = None
+):
+    """
+    Return a cached agent for the selected model.
+
+    The agent is created only once for each model.
+    """
 
     selected_model = normalize_model_name(
         model_name
@@ -426,7 +330,50 @@ def get_agent(model_name: str | None = None):
     if selected_model not in _AGENT_CACHE:
 
         _AGENT_CACHE[selected_model] = (
-            build_agent(selected_model)
+            build_agent(
+                selected_model
+            )
         )
 
     return _AGENT_CACHE[selected_model]
+
+
+# ============================================================
+# RUN AGENT
+# ============================================================
+
+def run_agent(
+    question: str,
+    thread_id: str,
+    model_name: str | None = None,
+):
+    """
+    Run the agent for a specific conversation thread.
+
+    thread_id is important because SQLite checkpointing
+    uses it to maintain conversation history.
+    """
+
+    agent = get_agent(
+        model_name
+    )
+
+    config = {
+        "configurable": {
+            "thread_id": thread_id
+        }
+    }
+
+    response = agent.invoke(
+        {
+            "messages": [
+                {
+                    "role": "user",
+                    "content": question,
+                }
+            ]
+        },
+        config=config,
+    )
+
+    return response

@@ -213,8 +213,91 @@
         .message-content {
             color: #ececec;
             font-size: 16px;
-            white-space: pre-wrap;
+            white-space: normal;
             overflow-wrap: anywhere;
+        }
+
+        .message-content p {
+            margin: 0 0 12px;
+        }
+
+        .message-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .message-content h1,
+        .message-content h2,
+        .message-content h3 {
+            margin: 18px 0 8px;
+            line-height: 1.3;
+        }
+
+        .message-content h1:first-child,
+        .message-content h2:first-child,
+        .message-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .message-content ul,
+        .message-content ol {
+            margin: 8px 0 14px;
+            padding-left: 24px;
+        }
+
+        .message-content li {
+            margin: 4px 0;
+        }
+
+        .message-content code {
+            background: #303030;
+            border: 1px solid #444;
+            border-radius: 4px;
+            padding: 2px 5px;
+            font-size: 0.9em;
+        }
+
+        .message-content pre {
+            background: #171717;
+            border: 1px solid #3f3f3f;
+            border-radius: 8px;
+            padding: 12px;
+            overflow-x: auto;
+            margin: 12px 0;
+        }
+
+        .message-content pre code {
+            background: transparent;
+            border: 0;
+            padding: 0;
+        }
+
+        .message-content a {
+            color: #79c7ff;
+        }
+
+        .markdown-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 16px;
+            font-size: 0.94em;
+        }
+
+        .markdown-table th,
+        .markdown-table td {
+            border: 1px solid #454545;
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .markdown-table th {
+            background: #303030;
+            color: #ffffff;
+            font-weight: 650;
+        }
+
+        .markdown-table tr:nth-child(even) td {
+            background: rgba(255, 255, 255, 0.025);
         }
 
         .tool-progress {
@@ -693,7 +776,7 @@
         statusText.textContent = "Ready";
 
         if (noticeText) {
-            noticeText.textContent = "BappyGPT can make mistakes. Check important info.";
+            noticeText.textContent = "AdityaGPT can make mistakes. Check important info.";
         }
 
         messageInput.focus();
@@ -725,6 +808,160 @@
         messageInput.focus();
     }
 
+    function escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function renderInlineMarkdown(value) {
+        let html = escapeHtml(value);
+
+        html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+        html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+        html = html.replace(/__([^_]+)__/g, "<strong>$1</strong>");
+        html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+        html = html.replace(/_([^_]+)_/g, "<em>$1</em>");
+        html = html.replace(
+            /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+            '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+
+        return html;
+    }
+
+    function isMarkdownTable(lines, index) {
+        return index + 1 < lines.length &&
+            /^\s*\|?.+\|.+\|?\s*$/.test(lines[index]) &&
+            /^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?\s*$/.test(lines[index + 1]);
+    }
+
+    function splitTableRow(line) {
+        return line.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map(cell => cell.trim());
+    }
+
+    function renderMarkdownTable(lines, start) {
+        const headers = splitTableRow(lines[start]);
+        let html = '<table class="markdown-table"><thead><tr>';
+
+        headers.forEach(header => {
+            html += `<th>${renderInlineMarkdown(header)}</th>`;
+        });
+
+        html += "</tr></thead><tbody>";
+        let index = start + 2;
+
+        while (index < lines.length && lines[index].includes("|")) {
+            const cells = splitTableRow(lines[index]);
+            html += "<tr>";
+
+            headers.forEach((_, cellIndex) => {
+                html += `<td>${renderInlineMarkdown(cells[cellIndex] || "")}</td>`;
+            });
+
+            html += "</tr>";
+            index += 1;
+        }
+
+        return {
+            html: html + "</tbody></table>",
+            nextIndex: index
+        };
+    }
+
+    function renderMarkdown(markdown) {
+        const lines = String(markdown || "").replace(/\r\n/g, "\n").split("\n");
+        const blocks = [];
+        let paragraph = [];
+        let index = 0;
+
+        function flushParagraph() {
+            if (paragraph.length === 0) return;
+            blocks.push(`<p>${renderInlineMarkdown(paragraph.join(" "))}</p>`);
+            paragraph = [];
+        }
+
+        while (index < lines.length) {
+            const line = lines[index];
+            const trimmed = line.trim();
+
+            if (!trimmed) {
+                flushParagraph();
+                index += 1;
+                continue;
+            }
+
+            if (isMarkdownTable(lines, index)) {
+                flushParagraph();
+                const table = renderMarkdownTable(lines, index);
+                blocks.push(table.html);
+                index = table.nextIndex;
+                continue;
+            }
+
+            const heading = trimmed.match(/^(#{1,3})\s+(.+)$/);
+            if (heading) {
+                flushParagraph();
+                const level = heading[1].length;
+                blocks.push(`<h${level}>${renderInlineMarkdown(heading[2])}</h${level}>`);
+                index += 1;
+                continue;
+            }
+
+            if (/^```/.test(trimmed)) {
+                flushParagraph();
+                const codeLines = [];
+                index += 1;
+
+                while (index < lines.length && !/^```/.test(lines[index].trim())) {
+                    codeLines.push(lines[index]);
+                    index += 1;
+                }
+
+                blocks.push(`<pre><code>${escapeHtml(codeLines.join("\n"))}</code></pre>`);
+                index += 1;
+                continue;
+            }
+
+            const unordered = trimmed.match(/^[-*+]\s+(.+)$/);
+            const ordered = trimmed.match(/^\d+[.)]\s+(.+)$/);
+            if (unordered || ordered) {
+                flushParagraph();
+                const tag = unordered ? "ul" : "ol";
+                const items = [];
+
+                while (index < lines.length) {
+                    const item = lines[index].trim().match(unordered ? /^[-*+]\s+(.+)$/ : /^\d+[.)]\s+(.+)$/);
+                    if (!item) break;
+                    items.push(`<li>${renderInlineMarkdown(item[1])}</li>`);
+                    index += 1;
+                }
+
+                blocks.push(`<${tag}>${items.join("")}</${tag}>`);
+                continue;
+            }
+
+            paragraph.push(trimmed);
+            index += 1;
+        }
+
+        flushParagraph();
+        return blocks.join("");
+    }
+
+    function setMessageContent(element, content, role = "assistant") {
+        element.rawText = content;
+
+        if (role === "assistant") {
+            element.innerHTML = renderMarkdown(content);
+        } else {
+            element.textContent = content;
+        }
+    }
+
     function openFilePicker() {
         document.getElementById("fileInput").click();
     }
@@ -746,7 +983,7 @@
 
         const messageContent = document.createElement("div");
         messageContent.className = "message-content";
-        messageContent.textContent = content;
+        setMessageContent(messageContent, content, role);
 
         messageDiv.appendChild(avatar);
         messageDiv.appendChild(messageContent);
@@ -987,7 +1224,8 @@
                     statusText.textContent = `Generating with ${selectedModel}...`;
                 }
 
-                botElement.textContent += data.token;
+                botElement.rawText += data.token;
+                botElement.innerHTML = renderMarkdown(botElement.rawText);
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             }
 
@@ -996,7 +1234,8 @@
                     completeToolProgress(toolProgress, likelyTool);
                 }
 
-                botElement.textContent += "\n\nError: " + data.error;
+                botElement.rawText += "\n\nError: " + data.error;
+                botElement.innerHTML = renderMarkdown(botElement.rawText);
                 statusText.textContent = "Ready";
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             }
@@ -1033,12 +1272,12 @@
                     console.error("Could not parse error response:", error);
                 }
 
-                botElement.textContent = errorText;
+                setMessageContent(botElement, errorText);
                 return;
             }
 
             if (!response.body) {
-                botElement.textContent = "Streaming is not supported by this browser.";
+                setMessageContent(botElement, "Streaming is not supported by this browser.");
                 return;
             }
 
@@ -1085,7 +1324,7 @@
                 completeToolProgress(toolProgress, likelyTool);
             }
 
-            botElement.textContent = "Something went wrong: " + error.message;
+            setMessageContent(botElement, "Something went wrong: " + error.message);
 
         } finally {
             sendBtn.disabled = false;

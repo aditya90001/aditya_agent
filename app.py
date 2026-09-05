@@ -46,7 +46,7 @@ from database import (
 
 from rag import add_document_to_rag
 
-from tools import set_current_thread_id
+
 
 
 # ============================================================
@@ -487,9 +487,7 @@ async def chat_stream(
     # Set current thread
     # --------------------------------------------------------
 
-    set_current_thread_id(
-        thread_id
-    )
+    
 
     # --------------------------------------------------------
     # LangGraph configuration
