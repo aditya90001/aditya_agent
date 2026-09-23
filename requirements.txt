@@ -28,3 +28,6 @@ torch>=2.0.0
 langchain-huggingface==1.2.2
 sentence-transformers==3.0.1
 rank-bm25
+flashrank
+certifi
+pytest

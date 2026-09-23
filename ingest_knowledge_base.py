@@ -31,18 +31,57 @@ def load_knowledge_base():
         ) as file:
             data = json.load(file)
 
-        for item in data:
+        # Handle both JSON formats
+        if isinstance(data, list):
+            items = data
 
+        elif isinstance(data, dict) and "chunks" in data:
+            items = data["chunks"]
+
+        else:
+            print(f"Skipping unsupported format: {json_file.name}")
+            continue
+
+        for item in items:
+
+            if not isinstance(item, dict):
+                continue
+
+            # Your older JSON files may use "text"
+            # while more.json uses "content"
             text = item.get("text", "").strip()
+
+            if not text:
+                text = item.get("content", "").strip()
 
             if not text:
                 continue
 
             metadata = item.get("metadata", {}).copy()
 
+            # Add useful metadata
             metadata["knowledge_type"] = "college"
             metadata["source_file"] = json_file.name
             metadata["document_id"] = item.get("id")
+
+            # Preserve fields from more.json
+            if item.get("topic"):
+                metadata["topic"] = item["topic"]
+
+            if item.get("subtopic"):
+                metadata["subtopic"] = item["subtopic"]
+
+            if item.get("title"):
+                metadata["title"] = item["title"]
+
+            if item.get("url"):
+                metadata["url"] = item["url"]
+
+            if item.get("content_type"):
+                metadata["content_type"] = item["content_type"]
+
+            if item.get("pdf_url"):
+                metadata["pdf_url"] = item["pdf_url"]
 
             documents.append(
                 Document(

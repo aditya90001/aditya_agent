@@ -1,0 +1,202 @@
+{
+  "source": "https://www.akgec.ac.in/",
+  "extraction_date": "2026-09-06",
+  "scope_note": "Covers ACADEMICS, R&D, ACHIEVEMENTS, LIFE@AKGEC, IQAC sections that were NOT part of the earlier scrape (About, Departments, Admissions, Placements already covered by akgec_scraper.py). This is a partial pass — pages not yet fetched are listed at the end under 'not_yet_scraped' so nothing is silently missing.",
+  "chunks": [
+    {
+      "id": "academics_001",
+      "topic": "Academics",
+      "subtopic": "Academic Calendar",
+      "title": "Academic Calendar",
+      "url": "https://www.akgec.ac.in/academics/academic-calendar/",
+      "content": "AKGEC publishes its Academic Calendar as a downloadable PDF each session. Current document: 'Academic-Calendar-2026-27-Odd', available at https://www.akgec.ac.in/wp-content/uploads/2026/08/Academic-Calendar-2026-27-Odd.pdf. The page itself carries no inline calendar text — the schedule of academic events, exams, and term dates lives entirely inside the linked PDF.",
+      "content_type": "pdf_pointer",
+      "pdf_url": "https://www.akgec.ac.in/wp-content/uploads/2026/08/Academic-Calendar-2026-27-Odd.pdf",
+      "last_modified": "2026-08-09"
+    },
+    {
+      "id": "academics_002",
+      "topic": "Academics",
+      "subtopic": "List of Holidays",
+      "title": "List of Holidays",
+      "url": "https://www.akgec.ac.in/list-of-holidays/",
+      "content": "AKGEC publishes an annual List of Holidays as a downloadable PDF. Current document: 'List-of-Holidays-2026', available at https://www.akgec.ac.in/wp-content/uploads/2026/02/List-of-Holidays-2026.pdf. No holiday dates are listed inline on the page itself.",
+      "content_type": "pdf_pointer",
+      "pdf_url": "https://www.akgec.ac.in/wp-content/uploads/2026/02/List-of-Holidays-2026.pdf",
+      "last_modified": "2026-02-04"
+    },
+    {
+      "id": "academics_003",
+      "topic": "Academics",
+      "subtopic": "AKGEC Digital School",
+      "title": "AKGEC Digital School",
+      "url": "https://www.akgec.ac.in/akgec-digital-school/",
+      "content": "AKGEC established a Digital Studio with high-end video and audio recording facilities to promote quality education and online learning, supporting lecture recording, live streaming of events, and interviews. To give students and the academic community easy access to this digital content, a YouTube channel named 'AKGEC DIGITAL SCHOOL' was created on 8 July 2020. The channel hosts 600+ recorded and uploaded lectures across various engineering subjects, with a cumulative watch time of around 8,200 hours. It has been viewed by almost 138,000+ viewers and has around 20,000+ subscribers. Channel link: https://www.youtube.com/channel/UCxs6M6Um-IYd9eD3XUHRlkg/playlists.",
+      "content_type": "text",
+      "last_modified": "2025-05-08"
+    },
+    {
+      "id": "academics_004",
+      "topic": "Academics",
+      "subtopic": "Educational Verification",
+      "title": "Educational Verification",
+      "url": "https://www.akgec.ac.in/academics/educational-verification/",
+      "content": "For verification of educational details of AKGEC students, external parties should visit the 'Services' link on the AKTU university website (www.aktu.ac.in). If there is a problem or delay in the University's response, the following process applies: mail the student's final year marksheet and/or degree certificate along with a verification request to the college's registrar email. A reply is sent within three working days of the College. If there is no reply within that window, contact Dr. Shraddha Dixit, Registrar, at mobile 9818391726 between 10 am and 4 pm, except Saturdays, Sundays, and public holidays.",
+      "content_type": "text",
+      "last_modified": "2023-09-26"
+    },
+    {
+      "id": "academics_005",
+      "topic": "Academics",
+      "subtopic": "Refund of Caution Money",
+      "title": "Policy and Process for Refund of Caution Money",
+      "url": "https://www.akgec.ac.in/academics/policy-and-process-for-refund-of-caution-money/",
+      "content": "Caution money and security deposit are refunded after deduction of any dues, only after a student finally leaves the College on completion of their course. Final-year students must fill a clearance form (No Dues Form) and submit it to the Accounts Office before leaving. The Accounts Office processes these forms and distributes caution money cheques at the College Convocation, informing students individually by letter and email. Most cheques are distributed in one go on a single day. Students who miss the Convocation Ceremony may collect their cheque on any other working day during College hours.",
+      "content_type": "text",
+      "last_modified": "2025-09-01"
+    },
+    {
+      "id": "academics_006",
+      "topic": "Academics",
+      "subtopic": "Issuance of Certificates for Passout Students",
+      "title": "Issuance of Certificates for Passout Students",
+      "url": "https://www.akgec.ac.in/academics/issuance-of-certificates-for-passout-students/",
+      "content": "Documents required for issuance of certificates to passout students: Character Certificate — photocopy of final year marksheet, No Dues certificate from Accounts. Transfer Certificate — photocopy of final year marksheet, photocopy of 10th pass certificate, Rs. 50 processing fee receipt from Accounts, No Dues certificate. Migration Certificate — apply online via the AKTU portal (erp.aktu.ac.in). Degree Certificate — government-issued ID proof of the student, No Dues certificate; in the student's absence, parents/guardians may collect it with their own government ID and an authority letter from the student. Students must collect their T.C. and Character Certificate within one month of applying (online or offline). Late collection within the next month incurs a Rs. 200 fine; certificates not collected within two months are cancelled and must be re-applied for at a combined cost of Rs. 500.",
+      "content_type": "text",
+      "last_modified": "2020-06-13"
+    },
+    {
+      "id": "rnd_001",
+      "topic": "R&D",
+      "subtopic": "R&D Policy",
+      "title": "R & D Policy",
+      "url": "https://www.akgec.ac.in/r-d-policy/",
+      "content": "This page is currently a placeholder — it displays only 'Coming Soon..' with no R&D policy content published yet.",
+      "content_type": "placeholder",
+      "last_modified": null
+    },
+    {
+      "id": "rnd_002",
+      "topic": "R&D",
+      "subtopic": "Research & Development Centres",
+      "title": "Research & Development Centres (Overview)",
+      "url": "https://www.akgec.ac.in/rd/",
+      "content": "AKGEC's Research and Development umbrella lists the following centres and clubs, each with its own page: Software Incubator (SDC), AKGEC Idea Lab, Cloud Computing Cell, Research and Industrial Consultancy Centre, Big Data Center of Excellence, Open Source Software Research and Development Center, Blockchain Research Lab, Centre of Metaverse, Google Developer Students Club (GDG AKGEC), Machine Learning Centre of Excellence, and Programming Club.",
+      "content_type": "text",
+      "sub_links": [
+        {"name": "Software Incubator (SDC)", "url": "https://www.akgec.ac.in/rd/software-incubator-sdc/"},
+        {"name": "AKGEC Idea Lab", "url": "https://www.akgec.ac.in/akgec-idea-lab/"},
+        {"name": "Cloud Computing Cell", "url": "https://www.akgec.ac.in/rd/cloud-computing-cell/"},
+        {"name": "Research and Industrial Consultancy Centre", "url": "https://www.akgec.ac.in/rd/research-and-industrial-consultancy-centre/"},
+        {"name": "Big Data Center of Excellence", "url": "https://www.akgec.ac.in/rd/big-data-centre-of-excellence/"},
+        {"name": "Open Source Software Research and Development", "url": "https://www.akgec.ac.in/rd/open-source-software-rd-center/"},
+        {"name": "Blockchain Research Lab", "url": "https://www.akgec.ac.in/blockchain-research-lab/"},
+        {"name": "Centre of Metaverse", "url": "https://www.akgec.ac.in/centre-of-metaverse/"},
+        {"name": "Google Developer Students Club", "url": "https://www.akgec.ac.in/google-developer-students-club/"},
+        {"name": "Machine Learning Centre of Excellence", "url": "https://www.akgec.ac.in/machine-learning-center-of-excellence/"},
+        {"name": "Programming Club", "url": "https://www.akgec.ac.in/programming-club/"}
+      ],
+      "last_modified": "2025-05-02"
+    },
+    {
+      "id": "achievements_001",
+      "topic": "Achievements",
+      "subtopic": "College Awards",
+      "title": "College Awards",
+      "url": "https://www.akgec.ac.in/achievements/college-awards/",
+      "content": "AKGEC has received the Diamond Rating by QS I-GAUGE, recognizing academic excellence, innovation, and holistic institutional development. Other notable awards and recognitions include: NABL accreditation (ISO/IEC 17025:2017) for the Measurement & Metrology Centre, developed in collaboration with Zeiss, covering 3D CMM, surface roughness testing, contour measurement, and 3D scanning. A patent for a 3-D Printer developed by Mr. Pradeep Jain, Associate Professor, Mechanical Engineering, under the Research and Industrial Consultancy Centre. AICRA 2020 STEM Award (India STEM College Award) and Best Robolab Setup — third consecutive year AKGEC was honored at the STEM Awards & Summit. AICRA 2019 Award for Excellence and Innovation in Robotics Education (at IIT Delhi). AICRA 2018 Awards for Best Technology Infrastructure of the Year and Best Vocational Robotics Educational Centre. NAFEMS UK 2018 Award for Best Industry Institute Interaction. Dialogue India 2018 Award for Best Private Engineering College in North India. Best LabVIEW Academy Award by National Instruments (2016) — over 600 engineers trained, 204 CLAD and 17 CLD certifications achieved. Best Institution for Innovation Award (2015) from the Entrepreneurship and Skill Development Association. Emerging LabVIEW Academy Award, North India (2014) by National Instruments. Best Institute Award by CMAI (2013). Dialogue India Academia Award 2013 — First Rank among engineering colleges affiliated to Mahamaya Technical University (MTU), Noida. Academic Excellence Award by UPTU for three consecutive years (2008, 2009, 2010), plus several UPTU appreciation letters (2005–2008) and a Best Engineering College Award from the Ghaziabad Management Association (2008).",
+      "content_type": "text",
+      "last_modified": "2025-09-10"
+    },
+    {
+      "id": "life_akgec_001",
+      "topic": "Life@AKGEC",
+      "subtopic": "Social Responsibilities — Green Audit",
+      "title": "Green Audit (and related institutional audits)",
+      "url": "https://www.akgec.ac.in/green-audit/",
+      "content": "The page presents AKGEC's institutional audit program as a set of image-based summaries covering seven audit types: Skill Audit, Gender Audit, Green Audit, Energy Audit, Social Audit, Environment Audit, and Disability (Access) Audit & Barrier-free premises. No additional inline text is provided beyond these category labels and accompanying images/infographics.",
+      "content_type": "text_with_images",
+      "last_modified": "2026-03-11"
+    },
+    {
+      "id": "iqac_001",
+      "topic": "IQAC",
+      "subtopic": "About IQAC",
+      "title": "About IQAC",
+      "url": "https://www.akgec.ac.in/iqac/",
+      "content": "Per NAAC guidelines, every accredited institution must establish an Internal Quality Assurance Cell (IQAC) as a pre-accreditation quality sustenance measure. IQAC works towards continuous quality enhancement and sustenance as an integral part of the institution's system. Its prime task is to develop a system for conscious, consistent, and catalytic improvement in overall institutional performance. AKGEC was first accredited by NAAC in 2015; the NAAC team visited the AKGEC campus from 22–24 January 2015.",
+      "content_type": "text",
+      "last_modified": "2025-12-10"
+    },
+    {
+      "id": "iqac_002",
+      "topic": "IQAC",
+      "subtopic": "Goals and Benefits of IQAC",
+      "title": "Goals and Benefits of IQAC",
+      "url": "https://www.akgec.ac.in/iqac/",
+      "content": "IQAC's goal is to introduce a consistent plan of action driving institutional progress via strategies for: efficient and timely work processes, academic research and programs, affordable and innovative approaches, use of ICT for modernizing education, best assessment processes for quality maintenance, and ensuring the best infrastructure to achieve institutional goals. Cited benefits of IQAC in the NAAC accreditation process include: clarifying and re-thinking work processes, internalizing a quality culture, improving inter-departmental collaboration, improving overall institutional functioning through transparency, enabling proper documentation, encouraging R&D, ensuring greater transparency via peer verification, promoting project- and service-based learning, encouraging professional development programs, and providing students a globalized ('think locally, act globally') platform.",
+      "content_type": "text",
+      "last_modified": "2025-12-10"
+    },
+    {
+      "id": "iqac_003",
+      "topic": "IQAC",
+      "subtopic": "IQAC Members",
+      "title": "IQAC Composition / Members",
+      "url": "https://www.akgec.ac.in/iqac/",
+      "content": "IQAC composition includes: Shri Vinay Garg (Treasurer, BOG — Management Member), Dr. Hemant Ahuja (Director — Director), Dr. Neelesh Kumar Gupta (Prof. & HoD, ECE — IQAC Coordinator), Mr. Satender Singh (Chief Administrative Officer — Administration Member), Mr. Sanjay Srivastava (Project Manager — Administration Member), and Faculty Members: Dr. Anupama Sharma (IT), Dr. Avdhesh Gupta (CSE), Dr. Himani Garg (ECE), Dr. Akash Kumar (AS&H), Ms. Gaganpreet Kaur (ME & TIFAC), Mr. Dushyant Singh Chauhan (ECE), Mr. Parveen Kumar (EN), Ms. Nikita Jaiswal (CE). Other members: Mr. Ishu Bansal (CTO, Truck Suvidha — Alumni Member), Mr. R. R. Tanwar (Council Member, IEI — Local Society Member), Ms. Aanya Goyal (III Year ECE — Student Member), Ms. Riya Goyal (III Year CSE-DS2 — Student Member), Mr. R. K. Mahajan (CEO, Micromatic Grinding Technologies — Industry Member), Mr. Abhijeet Nehra (MD, KUKA Robotics India — Employer Member), Dr. R. P. Maheshwari (Ex Professor, IIT Roorkee — Academician Member). Special Invitee Faculty Members (w.e.f. 2025–26): Dr. Jitendra Chhabra (ECE), Dr. Naresh Kumar (ECE), Mr. Pronab Kumar Adhikari (CSE), Ms. Navjyoti Sharma (EN), Dr. Uma Sharma (ECE), Mr. Pradeep Gupta (CSE), Mr. Neeraj Sharma (ECE).",
+      "content_type": "text",
+      "last_modified": "2025-12-10"
+    },
+    {
+      "id": "iqac_004",
+      "topic": "IQAC",
+      "subtopic": "Functions of IQAC",
+      "title": "Functions, Objectives and Tasks of IQAC",
+      "url": "https://www.akgec.ac.in/iqac/",
+      "content": "IQAC's objectives: develop a system for conscious, consistent, catalytic action to improve academic and administrative performance; promote institutional functioning towards quality enhancement via internalization of quality culture and best practices. Its strategies cover timely/efficient task performance, relevance and quality of academic and research programs, equitable and affordable access to programs, integration of modern teaching methods, credibility of evaluation, adequacy of support structures, and sharing research findings via networking. Key tasks include: quality assurance, accreditation/assessment preparation, continuous improvement, benchmarking against national/international standards, strategic planning, feedback and grievance handling, faculty/staff development, research and innovation support, documentation and reporting, data collection and analysis, best-practice dissemination, stakeholder engagement, resource mobilization, preparing and submitting the AQAR to NAAC annually, mentoring systems, academic/administration/accounts audits, implementation of OBE/NEP, and regulatory compliance. IQAC meets at least once every quarter, with a quorum of two-thirds of total members; agendas, minutes, and Action Taken Reports are documented with official signatures and retained electronically.",
+      "content_type": "text",
+      "last_modified": "2025-12-10"
+    },
+    {
+      "id": "iqac_005",
+      "topic": "IQAC",
+      "subtopic": "AQAR Reports",
+      "title": "Annual Quality Assurance Reports (AQAR) — Archive",
+      "url": "https://www.akgec.ac.in/iqac/",
+      "content": "AKGEC publishes an Annual Quality Assurance Report (AQAR) each year, submitted to NAAC. Archived reports available: AQAR 2023-2024, 2022-2023, 2021-2022, 2020-2021, 2019-2020, 2018-2019, 2017-2018, 2016-2017, and 2015-2016, each linked from the IQAC page. Additional NAAC-criterion-wise supporting documents (Curricular Aspects, Teaching-Learning and Evaluation, Research/Innovations/Extension, Infrastructure, Student Support, Governance/Leadership/Management, Institutional Values and Best Practices) are published for sessions 2023-24 and 2022-23, including feedback systems, NPTEL certificates, experiential learning reports, ICT tools documentation, internal assessment mechanisms, Ph.D. registration data, audited financial statements, and student satisfaction surveys.",
+      "content_type": "text_with_links",
+      "last_modified": "2025-12-10"
+    },
+    {
+      "id": "iqac_006",
+      "topic": "IQAC",
+      "subtopic": "PEOs/POs/PSOs and NAAC Certificate",
+      "title": "Program Educational Objectives, NAAC Certificate, Best Practices",
+      "url": "https://www.akgec.ac.in/iqac/",
+      "content": "Department-wise PEO/PO/PSO (Program Educational Objectives / Program Outcomes / Program Specific Outcomes) documents are linked for: Computer Science and Engineering, Civil Engineering, Electronics & Communication Engineering, Electrical & Electronics Engineering, Information Technology, Mechanical Engineering, and Master of Computer Applications. AKGEC's NAAC Certificate (2023) is available as a PDF. A separate 'Best Practices' page is linked at https://www.akgec.ac.in/iqac/7-2-best-practices/.",
+      "content_type": "text_with_links",
+      "last_modified": "2025-12-10"
+    }
+  ],
+  "not_yet_scraped": {
+    "note": "The following pages under the same 6 sections were seen in the site navigation but not fetched/extracted in this pass. Flagging them explicitly rather than guessing their content — can be pulled in a follow-up batch.",
+    "academics": ["Syllabus (external, hosted on aktu.ac.in)"],
+    "rnd": [
+      "Journal Papers (rd/journals/)", "Conference Papers (departmentwise-conference-papers/)",
+      "Book/Book Chapters (book-chapters/)", "Patent (patent/)", "Funded Projects (funded-projects/)",
+      "AKGEC International Journal of Technology", "Glimpse Journal of Computer Science",
+      "Conferences (rd/conferences/)", "FDPs (rd/fdps/)", "Consultancy (rd/consultancy-2/)",
+      "Open Educational Resources (OER)",
+      "Individual centre pages (Software Incubator, Idea Lab, Cloud Computing Cell, Research & Industrial Consultancy Centre, Big Data CoE, Open Source Software R&D, Blockchain Research Lab, Centre of Metaverse, GDG AKGEC, ML CoE, Programming Club)"
+    ],
+    "achievements": ["CFC Foundation Stone", "Faculty Achievements", "Student Achievements (Technical)", "Student Achievements (Extra Curricular)"],
+    "life_akgec": [
+      "Individual society pages (Conatus, Nirmaan, Oorja, Phoenix, Samveg, Euphony, Footprints, Horizon, Goonj, Renaissance, Taal, Verve, Photography & Media Club, Sports Club, CSI, Indian Concrete Institute, Robotics Club, IEEE, ISTE, SAE India, Electronics Club, Communication Club)",
+      "Events (college-events/)", "National Cadet Corps", "Unnat Bharat Abhiyaan & NSS",
+      "Experts Talk/Workshops", "Nature Club", "Adarsh Vikas Kendra", "Blood Donation Camp",
+      "Eco Friendly Environment", "SDP For Village Students", "SDP Under PMKVY", "Hostels", "Mediclaim"
+    ],
+    "iqac": ["IQAC Minutes of Meeting archive (individual PDFs)", "IQAC Best Practices sub-page (7-2-best-practices/)"]
+  }
+}

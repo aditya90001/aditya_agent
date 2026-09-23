@@ -82,6 +82,9 @@ init_db()
 # ============================================================
 # HOME PAGE
 # ============================================================
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
 
 @app.get("/")
 async def home(request: Request):
