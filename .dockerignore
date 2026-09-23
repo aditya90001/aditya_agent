@@ -11,21 +11,21 @@ __pycache__/
 *.pyd
 
 .git/
+.github/
 .gitignore
 
 .pytest_cache/
 .mypy_cache/
+
 .env
 .env.*
-.git/
-.github/
-venv/
-.venv/
-__pycache__/
-*.pyc
-.pytest_cache/
-.mypy_cache/
 
-chroma_db/
-data/
+# Do not bake runtime data and sensitive datasets into the image
+knowledge_base/
 uploads/
+data/
+chroma_db/
+*.sqlite
+*.sqlite3
+*.db
+*.log

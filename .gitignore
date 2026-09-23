@@ -16,6 +16,8 @@ __pycache__/
 !.env.example
 
 # Local databases and runtime state
+# Do not push sensitive or generated application data to GitHub
+knowledge_base/
 data/
 chroma_db/
 uploads/
